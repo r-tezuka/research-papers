@@ -368,7 +368,7 @@ def main() -> None:
         "-o", "--output",
         type=Path,
         default=None,
-        help="出力 JSON（省略時は input のベース名 + _enriched.json）",
+        help="出力 JSON（省略時は results/ 内に input のベース名 + _enriched.json）",
     )
     parser.add_argument(
         "-y", "--year",
@@ -405,9 +405,10 @@ def main() -> None:
     if not args.input_json.exists():
         raise SystemExit(f"File not found: {args.input_json}")
 
-    out_path = args.output or args.input_json.parent / (
+    out_path = args.output or Path("results") / (
         args.input_json.stem + "_enriched.json"
     )
+    out_path.parent.mkdir(parents=True, exist_ok=True)
 
     papers = json.loads(args.input_json.read_text(encoding="utf-8"))
     if not isinstance(papers, list):

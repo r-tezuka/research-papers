@@ -42,3 +42,7 @@ Thumbs.db
 .env.local
 *.local
 local/*
+
+# Script output (keep .gitkeep so results/ is tracked)
+results/*
+!results/.gitkeep

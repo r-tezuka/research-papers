@@ -23,7 +23,7 @@ def main() -> None:
         "-o", "--output",
         type=Path,
         default=None,
-        help="出力 HTML ファイル（省略時は input のベース名 + .html）",
+        help="出力 HTML ファイル（省略時は results/ 内に input のベース名 + .html）",
     )
     parser.add_argument(
         "-n", "--limit",
@@ -36,7 +36,8 @@ def main() -> None:
     if not args.input_json.exists():
         raise SystemExit(f"File not found: {args.input_json}")
 
-    out_path = args.output or args.input_json.with_suffix(".html")
+    out_path = args.output or Path("results") / (args.input_json.stem + ".html")
+    out_path.parent.mkdir(parents=True, exist_ok=True)
 
     data = json.loads(args.input_json.read_text(encoding="utf-8"))
     if not isinstance(data, list):

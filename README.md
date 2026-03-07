@@ -12,23 +12,25 @@ uv sync
 
 （未インストールなら: `curl -LsSf https://astral.sh/uv/install.sh | sh`）
 
-以降は `uv run python ...` または `.venv` を有効化して `python ...` で実行できます。
+以降は `uv run python scripts/...` または `.venv` を有効化して実行できます。スクリプトは `scripts/` 配下にあります（論文リスト生成: `scripts/list-builders/`、取得・出力: `scripts/`）。
 
 ## 使い方（SIGIR 2025 など会議論文集）
 
 **1. 論文リストを作成（SIGIR 2025 Accepted ページから）**
 
 ```bash
-uv run python build_sigir2025_paper_list.py -o sigir2025_accepted_papers.json
+uv run python scripts/list-builders/build_sigir2025_paper_list.py
 ```
+
+省略時は `results/sigir2025_accepted_papers.json` に出力します。`-o` で別パス指定可。
 
 **2. 論文リストを OpenAlex で解決し、PDF/abstract まで一括で取得**
 
 `accepted_papers` を入力に、OpenAlex 解決と PDF/abstract 取得を 1 件ずつ一連で行い、中間ファイルを出さずに結果 JSON を書き出します。
 
 ```bash
-# 論文リスト → 取得結果 JSON
-UNPAYWALL_EMAIL=your@email.com uv run python fetch_papers.py sigir2025_accepted_papers.json -o sigir2025.json
+# 論文リスト → 取得結果 JSON（省略時は results/ 内に出力）
+UNPAYWALL_EMAIL=your@email.com uv run python scripts/fetch_papers.py results/sigir2025_accepted_papers.json -o results/sigir2025.json
 ```
 
 テスト時は `-n 5` で件数制限。`--no-enrich` で Unpaywall/Crossref/PDF をスキップし OpenAlex 由来の PDF/abstract のみにできます。  
@@ -39,10 +41,10 @@ UNPAYWALL_EMAIL=your@email.com uv run python fetch_papers.py sigir2025_accepted_
 JSON から title / section / abstract / PDF URL を表形式の HTML に出力します。他ジャーナル用の JSON でも入力・出力ファイルを指定して利用できます。
 
 ```bash
-uv run python export_papers_html.py sigir2025.json -o sigir2025.html
+uv run python scripts/export_papers_html.py results/sigir2025.json
 ```
 
-`-n 10` で件数制限可能。出力した HTML をブラウザで開き、翻訳機能で日本語化できます。
+省略時は `results/sigir2025.html` に出力。`-o` で別パス、`-n 10` で件数制限可能。出力した HTML をブラウザで開き、翻訳機能で日本語化できます。
 
 ## 注意
 

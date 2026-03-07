@@ -96,8 +96,8 @@ def main() -> None:
     parser.add_argument(
         "-o", "--output",
         type=Path,
-        default=Path("sigir2025_accepted_papers.json"),
-        help="出力 JSON ファイルパス",
+        default=Path("results/sigir2025_accepted_papers.json"),
+        help="出力 JSON ファイルパス（デフォルト: results/sigir2025_accepted_papers.json）",
     )
     parser.add_argument(
         "-u", "--url",
@@ -112,6 +112,7 @@ def main() -> None:
     papers = parse_papers(html)
     print(f"Parsed {len(papers)} papers.")
 
+    args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(
         json.dumps(papers, ensure_ascii=False, indent=2),
         encoding="utf-8",
