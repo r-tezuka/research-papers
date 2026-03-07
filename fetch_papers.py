@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 論文リスト（accepted_papers JSON）を入力に、
-1件ごとに OpenAlex で解決 → PDF/abstract の抽出・補完までを一連で行い、
-中間ファイル（openalex.json）を挟まずに enriched 結果を出力する。
+1件ごとに OpenAlex で解決し、PDF/abstract を取得して結果 JSON を出力する。
 並列実行時はレート制限（OpenAlex 10/s、Unpaywall/Crossref 5/s 目安）を守る。
 """
 
@@ -289,8 +288,8 @@ def resolve_and_enrich_one(
     enrich_limiter: RateLimiter | None = None,
 ) -> dict:
     """
-    1件の論文について: OpenAlex 解決 → PDF/abstract 抽出 → 不足分を Unpaywall/Crossref で補完。
-    戻り値は enriched 形式の辞書（list_entry, openalex_work, resolved_via, pdf_url, abstract, pdf_source, abstract_source）。
+    1件の論文について: OpenAlex 解決 → PDF/abstract 取得（不足分は Unpaywall/Crossref/PDF で補完）。
+    戻り値は結果辞書（list_entry, openalex_work, resolved_via, pdf_url, abstract, pdf_source, abstract_source）。
     """
     out = {
         "list_entry": entry,
@@ -358,7 +357,7 @@ def resolve_and_enrich_one(
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="論文リスト（accepted_papers）を読み、OpenAlex 解決と PDF/abstract 補完を一連で行い enriched JSON を出力する"
+        description="論文リスト（accepted_papers）を読み、OpenAlex で解決し PDF/abstract を取得して JSON を出力する"
     )
     parser.add_argument(
         "input_json",
@@ -380,7 +379,7 @@ def main() -> None:
     parser.add_argument(
         "--no-enrich",
         action="store_true",
-        help="OpenAlex からの抽出のみ行い、Unpaywall/Crossref を叩かない",
+        help="OpenAlex からの抽出のみ行い、Unpaywall/Crossref/PDF を叩かない",
     )
     parser.add_argument(
         "--unpaywall-email",
@@ -399,7 +398,7 @@ def main() -> None:
         type=int,
         default=1,
         metavar="N",
-        help="並列ワーカー数（1=直列）。OpenAlex 10/s・Enrich 5/s を超えないよう 5 程度を推奨",
+        help="並列ワーカー数（1=直列）。OpenAlex 10/s・補完 API 5/s を超えないよう 5 程度を推奨",
     )
     args = parser.parse_args()
 

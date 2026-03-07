@@ -24,15 +24,25 @@ uv run python build_sigir2025_paper_list.py -o sigir2025_accepted_papers.json
 
 **2. 論文リストを OpenAlex で解決し、PDF/abstract まで一括で取得**
 
-`accepted_papers` を入力に、OpenAlex 解決と PDF/abstract 補完を 1 件ずつ一連で行い、中間ファイルを出さずに enriched 結果を書き出します。
+`accepted_papers` を入力に、OpenAlex 解決と PDF/abstract 取得を 1 件ずつ一連で行い、中間ファイルを出さずに結果 JSON を書き出します。
 
 ```bash
-# 論文リスト → 直接 enriched 出力
-UNPAYWALL_EMAIL=your@email.com uv run python resolve_and_enrich_papers.py sigir2025_accepted_papers.json -o sigir2025_enriched.json
+# 論文リスト → 取得結果 JSON
+UNPAYWALL_EMAIL=your@email.com uv run python fetch_papers.py sigir2025_accepted_papers.json -o sigir2025.json
 ```
 
 テスト時は `-n 5` で件数制限。`--no-enrich` で Unpaywall/Crossref/PDF をスキップし OpenAlex 由来の PDF/abstract のみにできます。  
-`-j 5` で並列ワーカー数指定（OpenAlex 10/s・Enrich 5/s のレート制限を守るため 5 程度を推奨）。
+`-j 5` で並列ワーカー数指定（OpenAlex 10/s・補完 API 5/s のレート制限を守るため 5 程度を推奨）。
+
+**3. 取得結果を HTML で出力（ブラウザ翻訳用）**
+
+JSON から title / section / abstract / PDF URL を表形式の HTML に出力します。他ジャーナル用の JSON でも入力・出力ファイルを指定して利用できます。
+
+```bash
+uv run python export_papers_html.py sigir2025.json -o sigir2025.html
+```
+
+`-n 10` で件数制限可能。出力した HTML をブラウザで開き、翻訳機能で日本語化できます。
 
 ## 注意
 
