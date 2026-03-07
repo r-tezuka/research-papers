@@ -37,6 +37,38 @@ uv run python fetch_journal_works.py -j "Science" -y 2022 -o ./output
 出力ファイルは `ジャーナル名_西暦.json` の形式で、実行したディレクトリ（または `-o` で指定したディレクトリ）に保存されます。  
 例: `Nature_2023.json`
 
+## SIGIR 2025 など会議論文集の論文を OpenAlex で取得する場合
+
+会議論文集は OpenAlex で Source として一括取得できないため、**論文リスト**と **OpenAlex 解決**の2段階で行います。
+
+**1. 論文リストを作成（SIGIR 2025 Accepted ページから）**
+
+```bash
+uv run python build_sigir2025_paper_list.py -o sigir2025_accepted_papers.json
+```
+
+**2. 論文リストを OpenAlex で解決（タイトル検索 or DOI）**
+
+```bash
+uv run python fetch_works_from_openalex.py sigir2025_accepted_papers.json -o sigir2025_openalex.json
+```
+
+テスト時は `-n 5` で件数制限できます。リストの各エントリに `doi` があれば DOI で、なければタイトル検索で work を取得します。
+
+**3. PDF URL とアブストラクトを付与（任意）**
+
+OpenAlex の結果 JSON から PDF URL とアブストラクトを抽出し、不足分を Unpaywall / Crossref で補完します。
+
+```bash
+# OpenAlex から抽出のみ（外部 API を叩かない）
+uv run python enrich_papers_pdf_abstract.py sigir2025_openalex.json -o sigir2025_enriched.json --no-enrich
+
+# 不足分を Unpaywall・Crossref で補完（Unpaywall はメール推奨）
+UNPAYWALL_EMAIL=your@email.com uv run python enrich_papers_pdf_abstract.py sigir2025_openalex.json -o sigir2025_enriched.json
+```
+
+出力の各要素には `pdf_url`・`abstract`・`pdf_source`・`abstract_source` が追加されます。テスト時は `-n 10` で件数制限できます。
+
 ## 注意
 
 - ジャーナル名検索で複数候補がある場合、**先頭1件**が使われます。意図したジャーナルでない場合は [OpenAlex](https://openalex.org/) でソースIDを調べ、`-s` で指定してください。
