@@ -69,6 +69,17 @@ UNPAYWALL_EMAIL=your@email.com uv run python enrich_papers_pdf_abstract.py sigir
 
 出力の各要素には `pdf_url`・`abstract`・`pdf_source`・`abstract_source` が追加されます。テスト時は `-n 10` で件数制限できます。
 
+**一括で解決〜enrich まで行う場合（中間ファイルなし）**
+
+`accepted_papers` を入力に、OpenAlex 解決と PDF/abstract 補完を 1 件ずつ一連で行い、中間の `*_openalex.json` を出さずに enriched 結果だけ書き出します。
+
+```bash
+# 論文リスト → 直接 enriched 出力（openalex.json は作らない）
+UNPAYWALL_EMAIL=your@email.com uv run python resolve_and_enrich_papers.py sigir2025_accepted_papers.json -o sigir2025_enriched.json
+```
+
+テスト時は `-n 5` で件数制限。`--no-enrich` で Unpaywall/Crossref をスキップし OpenAlex 由来の PDF/abstract のみにできます。
+
 ## 注意
 
 - ジャーナル名検索で複数候補がある場合、**先頭1件**が使われます。意図したジャーナルでない場合は [OpenAlex](https://openalex.org/) でソースIDを調べ、`-s` で指定してください。
