@@ -1,0 +1,9 @@
+[project]
+name = "research-papers"
+version = "0.1.0"
+description = "OpenAlex API でジャーナル・年指定で論文情報を一括取得する"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.28.0",
+]
