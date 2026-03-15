@@ -92,6 +92,7 @@ def main() -> None:
             time.sleep(args.sleep)
         except Exception as error:
             record["translation_error"] = str(error)
+            print(f"⚠️  [{title[:60]}] 翻訳失敗: {error}")
 
         translated.append(record)
 

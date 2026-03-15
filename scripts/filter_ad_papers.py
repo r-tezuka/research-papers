@@ -5,7 +5,10 @@ import re
 from common import load_jsonl, write_jsonl
 
 
-DEFAULT_KEYWORDS = ["ad", "ads", "advertising", "advertiser", "sponsored", "monetization","bidding", "auction"]
+DEFAULT_KEYWORDS = ["ad", "ads", "advertising", "advertiser", "sponsored", "monetization", "bidding", "auction"]
+
+# これらのフレーズに含まれる "ad" は広告とは無関係のため除外する
+DEFAULT_EXCLUDE_PHRASES = ["ad hoc", "ad-hoc", "adhoc"]
 
 
 def compile_pattern(keywords: list[str]) -> re.Pattern:
@@ -14,9 +17,16 @@ def compile_pattern(keywords: list[str]) -> re.Pattern:
     return re.compile(r"\b(" + "|".join(escaped) + r")\b", re.IGNORECASE)
 
 
-def is_ad_related(text: str, pattern: re.Pattern) -> bool:
-    """タイトル+abstract文字列が広告関連かを正規表現で判定する。"""
-    return bool(pattern.search(text or ""))
+def compile_exclude_pattern(phrases: list[str]) -> re.Pattern:
+    """除外フレーズ一覧から除去用の正規表現を作る。"""
+    escaped = [re.escape(phrase) for phrase in phrases if phrase]
+    return re.compile("|".join(escaped), re.IGNORECASE)
+
+
+def is_ad_related(text: str, pattern: re.Pattern, exclude_pattern: re.Pattern | None = None) -> bool:
+    """除外フレーズを取り除いてから広告関連キーワードを判定する。"""
+    cleaned = exclude_pattern.sub(" ", text) if exclude_pattern else text
+    return bool(pattern.search(cleaned or ""))
 
 
 def main() -> None:
@@ -29,10 +39,18 @@ def main() -> None:
         default=",".join(DEFAULT_KEYWORDS),
         help="Comma-separated keywords",
     )
+    parser.add_argument(
+        "--exclude-phrases",
+        default=",".join(DEFAULT_EXCLUDE_PHRASES),
+        help="Comma-separated phrases to exclude before keyword matching (e.g. ad hoc)",
+    )
     args = parser.parse_args()
 
     keywords = [item.strip() for item in args.keywords.split(",") if item.strip()]
     pattern = compile_pattern(keywords)
+
+    exclude_phrases = [item.strip() for item in args.exclude_phrases.split(",") if item.strip()]
+    exclude_pattern = compile_exclude_pattern(exclude_phrases) if exclude_phrases else None
 
     records = load_jsonl(args.input)
     if not records:
@@ -42,7 +60,7 @@ def main() -> None:
     filtered = []
     for record in records:
         text = f"{record.get('title', '')}\n{record.get('abstract', '')}"
-        if is_ad_related(text, pattern):
+        if is_ad_related(text, pattern, exclude_pattern):
             record["is_ad_related"] = True
             filtered.append(record)
 
