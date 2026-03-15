@@ -5,7 +5,7 @@ import re
 from common import load_jsonl, write_jsonl
 
 
-DEFAULT_KEYWORDS = ["ad", "ads", "advertising", "advertiser", "sponsored", "monetization"]
+DEFAULT_KEYWORDS = ["ad", "ads", "advertising", "advertiser", "sponsored", "monetization","bidding", "auction"]
 
 
 def compile_pattern(keywords: list[str]) -> re.Pattern:

@@ -29,17 +29,16 @@ def translate_text(client: genai.Client, model: str, title: str, abstract: str) 
 
 
 def load_cache_map(path: str) -> dict[str, dict]:
-    """翻訳キャッシュJSONLを `paper_id` キーの辞書へ変換して扱いやすくする。"""
+    """既存の翻訳済みJSONLを `paper_id` キーの辞書へ変換して再利用する。"""
     cache_records = load_jsonl(path)
     return {record.get("paper_id", ""): record for record in cache_records if record.get("paper_id")}
 
 
 def main() -> None:
-    """広告関連論文を翻訳し、結果とキャッシュをJSONLで更新する。"""
+    """広告関連論文を翻訳し、結果を `papers_translated.jsonl` に集約して更新する。"""
     parser = argparse.ArgumentParser(description="Translate ad-filtered papers with cache")
     parser.add_argument("--input", default="data/papers_filtered.jsonl", help="Filtered input JSONL")
     parser.add_argument("--output", default="data/papers_translated.jsonl", help="Translated output JSONL")
-    parser.add_argument("--cache", default="data/translations.jsonl", help="Translation cache JSONL")
     parser.add_argument("--model", default="gemini-2.5-flash", help="Gemini model")
     parser.add_argument("--sleep", type=float, default=5.0, help="Sleep seconds between API calls")
     parser.add_argument("--limit", type=int, default=0, help="Translate only first N records (0=all)")
@@ -59,8 +58,7 @@ def main() -> None:
         records = records[: args.limit]
 
     client = genai.Client(api_key=api_key)
-    cache_map = load_cache_map(args.cache)
-    cache_records = list(cache_map.values())
+    cache_map = load_cache_map(args.output)
 
     translated = []
     translated_count = 0
@@ -89,15 +87,7 @@ def main() -> None:
             record["translation_cached"] = False
             record["translated_at"] = now_iso()
 
-            cache_entry = {
-                "paper_id": paper_id,
-                "doi": record.get("doi", ""),
-                "title": title,
-                "translated_ja": result,
-                "translation_model": args.model,
-                "translated_at": record["translated_at"],
-            }
-            cache_map[paper_id] = cache_entry
+            cache_map[paper_id] = record.copy()
             translated_count += 1
             time.sleep(args.sleep)
         except Exception as error:
@@ -105,11 +95,13 @@ def main() -> None:
 
         translated.append(record)
 
+    for record in translated:
+        cache_map[record["paper_id"]] = record.copy()
+
     write_jsonl(args.output, translated)
-    write_jsonl(args.cache, list(cache_map.values()))
 
     print(
-        f"✨ Wrote {args.output} ({len(translated)} records) | translated={translated_count}, cache_hit={cache_hit}, cache={args.cache}"
+        f"✨ Wrote {args.output} ({len(translated)} records) | translated={translated_count}, cache_hit={cache_hit}"
     )
 
 
