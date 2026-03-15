@@ -1,6 +1,6 @@
 # research-papers
 
-論文リストを OpenAlex で解決し、PDF URL とアブストラクトを取得するスクリプトを格納しています。
+会議論文 (SIGIR など) を DBLP・OpenAlex 等から収集し、広告関連論文を日本語要約するパイプラインです。
 
 ## セットアップ
 
@@ -12,40 +12,91 @@ uv sync
 
 （未インストールなら: `curl -LsSf https://astral.sh/uv/install.sh | sh`）
 
-以降は `uv run python scripts/...` または `.venv` を有効化して実行できます。スクリプトは `scripts/` 配下にあります（論文リスト生成: `scripts/list-builders/`、取得・出力: `scripts/`）。
+`.env` に Gemini API キーを設定してください。
 
-## 使い方（SIGIR 2025 など会議論文集）
-
-**1. 論文リストを作成（SIGIR 2025 Accepted ページから）**
-
-```bash
-uv run python scripts/list-builders/build_sigir2025_paper_list.py
+```
+GEMINI_API_KEY=your_key_here
 ```
 
-省略時は `results/sigir2025_accepted_papers.json` に出力します。`-o` で別パス指定可。
+## パイプラインの実行手順
 
-**2. 論文リストを OpenAlex で解決し、PDF/abstract まで一括で取得**
+### ステップ 1: 論文マスター作成
 
-`accepted_papers` を入力に、OpenAlex 解決と PDF/abstract 取得を 1 件ずつ一連で行い、中間ファイルを出さずに結果 JSON を書き出します。
-
-```bash
-# 論文リスト → 取得結果 JSON（省略時は results/ 内に出力）
-UNPAYWALL_EMAIL=your@email.com uv run python scripts/fetch_papers.py results/sigir2025_accepted_papers.json -o results/sigir2025.json
-```
-
-テスト時は `-n 5` で件数制限。`--no-enrich` で Unpaywall/Crossref/PDF をスキップし OpenAlex 由来の PDF/abstract のみにできます。  
-`-j 5` で並列ワーカー数指定（OpenAlex 10/s・補完 API 5/s のレート制限を守るため 5 程度を推奨）。
-
-**3. 取得結果を HTML で出力（ブラウザ翻訳用）**
-
-JSON から title / section / abstract / PDF URL を表形式の HTML に出力します。他ジャーナル用の JSON でも入力・出力ファイルを指定して利用できます。
+DBLP と conference list (accepted papers JSON) を統合し、重複排除した master JSONL を作成します。
 
 ```bash
-uv run python scripts/export_papers_html.py results/sigir2025.json
+uv run python scripts/build_master_list.py \
+  --conference sigir \
+  --year 2025 \
+  --conference-list results/sigir2025_accepted_papers.json \
+  --output data/papers_master.jsonl
 ```
 
-省略時は `results/sigir2025.html` に出力。`-o` で別パス、`-n 10` で件数制限可能。出力した HTML をブラウザで開き、翻訳機能で日本語化できます。
+### ステップ 2: Abstract 補完
+
+DOI を基に OpenAlex → Crossref → Semantic Scholar の順で未取得の abstract を補完します。
+
+```bash
+uv run python scripts/enrich_abstracts.py \
+  --input data/papers_master.jsonl \
+  --output data/papers_enriched.jsonl
+```
+
+### ステップ 3: 広告関連論文を抽出
+
+title + abstract をキーワードで検索し、広告関連論文だけを絞り込みます。
+
+```bash
+uv run python scripts/filter_ad_papers.py \
+  --input data/papers_enriched.jsonl \
+  --output data/papers_filtered.jsonl
+```
+
+キーワードを変更する場合は `--keywords ad,advertising,sponsored,monetization` のように指定します。
+
+### ステップ 4: Gemini で日本語要約
+
+フィルタ済み論文を Gemini で翻訳します。`data/papers_translated.jsonl` がキャッシュを兼ねるため、再実行時は未翻訳分のみ処理します。
+
+```bash
+uv run python scripts/translate_filtered.py \
+  --input data/papers_filtered.jsonl \
+  --output data/papers_translated.jsonl
+```
+
+API クォータを節約したい場合は `--limit 10` で件数を制限できます。
+
+### ステップ 5: Markdown に出力
+
+翻訳済み JSONL を Markdown ドキュメントに変換します。
+
+```bash
+uv run python scripts/export_translated_markdown.py \
+  --input data/papers_translated.jsonl \
+  --output data/papers_translated.md \
+  --title "SIGIR 2025 広告関連論文"
+```
+
+`--sort-by` で並び替え (title / section / year) を指定できます。
+
+## データフロー
+
+```
+DBLP + conference list
+        ↓ build_master_list.py
+data/papers_master.jsonl
+        ↓ enrich_abstracts.py
+data/papers_enriched.jsonl
+        ↓ filter_ad_papers.py
+data/papers_filtered.jsonl
+        ↓ translate_filtered.py
+data/papers_translated.jsonl
+        ↓ export_translated_markdown.py
+data/papers_translated.md
+```
 
 ## 注意
 
-- 論文数が多い場合は取得に時間がかかります（API のレート制限のため）。429 が出た場合は日次予算または 100 req/s 制限を確認し、必要なら API キー利用や待機を検討してください。
+- `enrich_abstracts.py` は DOI がない論文の abstract を補完できません。
+- `translate_filtered.py` は Gemini 無料枠の 1 日 20 リクエスト制限に注意してください。429 が出た場合は翌日以降に再実行すると、キャッシュ済みの翻訳はスキップされます。
+- 旧実装は `scripts/sandbox/paper-translator.py` に保存しています。
