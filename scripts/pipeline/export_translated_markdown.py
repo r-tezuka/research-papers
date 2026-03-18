@@ -45,8 +45,8 @@ def build_entry(record: dict) -> str:
 def main() -> None:
     """翻訳済みJSONLをMarkdown文書へ変換する。"""
     parser = argparse.ArgumentParser(description="Export translated papers JSONL to Markdown")
-    parser.add_argument("--input", default="data/papers_translated.jsonl", help="Input translated JSONL")
-    parser.add_argument("--output", default="data/papers_translated.md", help="Output Markdown path")
+    parser.add_argument("--input", default="results/papers_translated.jsonl", help="Input translated JSONL")
+    parser.add_argument("--output", default="results/papers_translated.md", help="Output Markdown path")
     parser.add_argument("--title", default="Translated Papers", help="Document title")
     parser.add_argument("--sort-by", choices=["title", "section", "year"], default="section", help="Sort key")
     args = parser.parse_args()

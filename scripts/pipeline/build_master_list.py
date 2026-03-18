@@ -68,7 +68,7 @@ def main() -> None:
     """DBLPとconference listを統合してmaster JSONLを生成する。"""
     parser = argparse.ArgumentParser(description="Build papers master list from DBLP and conference list")
     parser.add_argument("--conference-list", required=True, help="Path to accepted papers JSON")
-    parser.add_argument("--output", default="data/papers_master.jsonl", help="Output JSONL path")
+    parser.add_argument("--output", default="results/papers_master.jsonl", help="Output JSONL path")
     args = parser.parse_args()
 
     conference_path = Path(args.conference_list)

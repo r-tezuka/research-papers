@@ -32,8 +32,8 @@ def is_ad_related(text: str, pattern: re.Pattern, exclude_pattern: re.Pattern | 
 def main() -> None:
     """enriched JSONLから広告関連論文だけを抽出して保存する。"""
     parser = argparse.ArgumentParser(description="Filter ad-related papers by title + abstract")
-    parser.add_argument("--input", default="data/papers_enriched.jsonl", help="Input JSONL")
-    parser.add_argument("--output", default="data/papers_filtered.jsonl", help="Output JSONL")
+    parser.add_argument("--input", default="results/papers_enriched.jsonl", help="Input JSONL")
+    parser.add_argument("--output", default="results/papers_filtered.jsonl", help="Output JSONL")
     parser.add_argument(
         "--keywords",
         default=",".join(DEFAULT_KEYWORDS),

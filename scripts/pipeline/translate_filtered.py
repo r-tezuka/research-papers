@@ -37,8 +37,8 @@ def load_cache_map(path: str) -> dict[str, dict]:
 def main() -> None:
     """広告関連論文を翻訳し、結果を `papers_translated.jsonl` に集約して更新する。"""
     parser = argparse.ArgumentParser(description="Translate ad-filtered papers with cache")
-    parser.add_argument("--input", default="data/papers_filtered.jsonl", help="Filtered input JSONL")
-    parser.add_argument("--output", default="data/papers_translated.jsonl", help="Translated output JSONL")
+    parser.add_argument("--input", default="results/papers_filtered.jsonl", help="Filtered input JSONL")
+    parser.add_argument("--output", default="results/papers_translated.jsonl", help="Translated output JSONL")
     parser.add_argument("--model", default="gemini-2.5-flash", help="Gemini model")
     parser.add_argument("--sleep", type=float, default=5.0, help="Sleep seconds between API calls")
     parser.add_argument("--limit", type=int, default=0, help="Translate only first N records (0=all)")

@@ -42,15 +42,15 @@ conference builder (scripts/list-builders/*)
         ↓ run_pipeline.py または個別実行
 DBLP + conference list
         ↓ pipeline/build_master_list.py
-data/papers_master.jsonl
+results/papers_master.jsonl
         ↓ pipeline/enrich_abstracts.py
-data/papers_enriched.jsonl
+results/papers_enriched.jsonl
         ↓ pipeline/filter_ad_papers.py
-data/papers_filtered.jsonl
+results/papers_filtered.jsonl
         ↓ pipeline/translate_filtered.py
-data/papers_translated.jsonl
+results/papers_translated.jsonl
         ↓ pipeline/export_translated_markdown.py
-data/papers_translated.md
+results/papers_translated.md
 ```
 
 ## 注意
