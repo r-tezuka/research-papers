@@ -26,9 +26,47 @@ DBLP と conference list (accepted papers JSON) を統合し、重複排除し�
 
 ```bash
 uv run python scripts/build_master_list.py \
-  --conference sigir \
-  --year 2025 \
   --conference-list results/sigir2025_accepted_papers.json \
+  --output data/papers_master.jsonl
+```
+
+`build_master_list.py` のCLIは `--conference-list` と `--output` のみです（DBLP取得設定は内部デフォルトを使用）。
+
+`--conference-list` は metadata + papers のオブジェクト形式が必須です。
+
+```json
+{
+  "conference_id": "sigir",
+  "venue": "SIGIR",
+  "year": 2025,
+  "dblp_query": "toc:db/conf/sigir/sigir2025.bht:",
+  "papers": [
+    {"title": "...", "section": "...", "doi": "..."}
+  ]
+}
+```
+
+実運用では、先に会議別ビルダーで `results/*.json` を作ってから `build_master_list.py` に渡します。
+
+SIGIR 2025 の例:
+
+```bash
+uv run python scripts/list-builders/build_sigir2025_paper_list.py \
+  --output results/sigir2025_accepted_papers.json
+
+uv run python scripts/build_master_list.py \
+  --conference-list results/sigir2025_accepted_papers.json \
+  --output data/papers_master.jsonl
+```
+
+KDD 2025 の例:
+
+```bash
+uv run python scripts/list-builders/build_kdd2025_paper_list.py \
+  --output results/kdd2025_accepted_papers.json
+
+uv run python scripts/build_master_list.py \
+  --conference-list results/kdd2025_accepted_papers.json \
   --output data/papers_master.jsonl
 ```
 
@@ -98,5 +136,5 @@ data/papers_translated.md
 ## 注意
 
 - `enrich_abstracts.py` は DOI がない論文の abstract を補完できません。
-- `translate_filtered.py` は Gemini 無料枠の 1 日 20 リクエスト制限に注意してください。429 が出た場合は翌日以降に再実行すると、キャッシュ済みの翻訳はスキップされます。
+- `translate_filtered.py` は Gemini の無料枠・レート制限に注意してください。429 が出た場合は時間を空けて再実行すると、キャッシュ済みの翻訳はスキップされます。
 - 旧実装は `scripts/sandbox/paper-translator.py` に保存しています。

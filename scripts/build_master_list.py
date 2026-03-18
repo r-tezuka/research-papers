@@ -3,73 +3,51 @@ import argparse
 import json
 from pathlib import Path
 
-import requests
-
 from common import deduplicate_records, normalize_doi, write_jsonl
+from dblp_utils import default_dblp_query, fetch_dblp_records
+
+DBLP_ROWS = 1000
+DBLP_TIMEOUT = 30
 
 
-DBLP_API_URL = "https://dblp.org/search/publ/api"
+def load_conference_bundle(path: Path) -> tuple[dict, list[dict]]:
+    """conference list JSON を読み込み、必須メタ情報と論文配列を返す。"""
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        raise SystemExit(f"invalid JSON in conference list: {path} ({exc})") from exc
+    if not isinstance(data, dict):
+        raise SystemExit("conference list must be an object with metadata + papers")
+
+    papers = data.get("papers")
+    if not isinstance(papers, list):
+        raise SystemExit("conference list must contain `papers` as an array")
+
+    conference_id = str(data.get("conference_id", "")).strip().lower()
+    venue = str(data.get("venue", "")).strip()
+    year = int(data.get("year", 0)) if str(data.get("year", "")).isdigit() else 0
+    dblp_query = str(data.get("dblp_query", "")).strip()
+
+    if not conference_id:
+        raise SystemExit("conference list must contain non-empty `conference_id`")
+    if not venue:
+        raise SystemExit("conference list must contain non-empty `venue`")
+    if year <= 0:
+        raise SystemExit("conference list must contain valid numeric `year`")
+
+    metadata = {
+        "conference_id": conference_id,
+        "venue": venue,
+        "year": year,
+        "dblp_query": dblp_query,
+    }
+    return metadata, papers
 
 
-def default_dblp_query(conference: str, year: int) -> str:
-    """会議名と年から、DBLPの目次ベース既定クエリを組み立てる。"""
-    return f"toc:db/conf/{conference.lower()}/{conference.lower()}{year}.bht:"
-
-
-def extract_doi_from_hit(hit_info: dict) -> str:
-    """DBLPのhitからDOIを取り出し、`doi` と `ee` の両方に対応する。"""
-    doi = hit_info.get("doi")
-    if doi:
-        return normalize_doi(doi)
-
-    ee = hit_info.get("ee")
-    if isinstance(ee, list):
-        for value in ee:
-            normalized = normalize_doi(value)
-            if normalized:
-                return normalized
-    elif isinstance(ee, str):
-        return normalize_doi(ee)
-    return ""
-
-
-def fetch_dblp_records(query: str, year: int, timeout: int, rows: int) -> list[dict]:
-    """DBLP APIから論文候補を取得し、後段で扱いやすい共通形式へ整形する。"""
-    params = {"q": query, "h": rows, "format": "json"}
-    response = requests.get(DBLP_API_URL, params=params, timeout=timeout)
-    response.raise_for_status()
-
-    data = response.json()
-    hits = data.get("result", {}).get("hits", {}).get("hit", [])
-    if isinstance(hits, dict):
-        hits = [hits]
-
+def load_conference_list(items: list[dict], year: int, venue: str) -> list[dict]:
+    """conference list の論文配列を共通レコード形式に変換する。"""
     records: list[dict] = []
-    for hit in hits:
-        info = hit.get("info", {})
-        title = info.get("title", "")
-        if not title:
-            continue
-        records.append(
-            {
-                "title": title,
-                "doi": extract_doi_from_hit(info),
-                "year": int(info.get("year", year)) if str(info.get("year", "")).isdigit() else year,
-                "venue": info.get("venue", ""),
-                "sources": ["dblp"],
-            }
-        )
-    return records
-
-
-def load_conference_list(path: Path, year: int, venue: str) -> list[dict]:
-    """手元のconference list JSONを読み込み、共通レコード形式に変換する。"""
-    data = json.loads(path.read_text(encoding="utf-8"))
-    records: list[dict] = []
-    if not isinstance(data, list):
-        return records
-
-    for item in data:
+    for item in items:
         title = item.get("title", "")
         if not title:
             continue
@@ -89,33 +67,30 @@ def load_conference_list(path: Path, year: int, venue: str) -> list[dict]:
 def main() -> None:
     """DBLPとconference listを統合してmaster JSONLを生成する。"""
     parser = argparse.ArgumentParser(description="Build papers master list from DBLP and conference list")
-    parser.add_argument("--conference", default="sigir", help="Conference short name (e.g., sigir)")
-    parser.add_argument("--year", type=int, default=2025, help="Conference year")
-    parser.add_argument("--dblp-query", default="", help="Custom DBLP query string")
-    parser.add_argument("--conference-list", default="", help="Path to accepted papers JSON")
-    parser.add_argument("--rows", type=int, default=1000, help="Number of DBLP rows to request")
-    parser.add_argument("--timeout", type=int, default=30, help="HTTP timeout seconds")
+    parser.add_argument("--conference-list", required=True, help="Path to accepted papers JSON")
     parser.add_argument("--output", default="data/papers_master.jsonl", help="Output JSONL path")
     args = parser.parse_args()
 
-    query = args.dblp_query or default_dblp_query(args.conference, args.year)
+    conference_path = Path(args.conference_list)
+    if not conference_path.is_file():
+        raise SystemExit(f"conference list file not found: {conference_path}")
+
+    metadata, conference_items = load_conference_bundle(conference_path)
+    conference_id = metadata["conference_id"]
+    venue = metadata["venue"]
+    year = metadata["year"]
+
+    default_query = metadata.get("dblp_query") or default_dblp_query(conference_id, year)
+    fallback_query = f"{conference_id} {year}"
+    query = default_query
 
     print(f"📡 DBLP query: {query}")
-    records = fetch_dblp_records(query, args.year, args.timeout, args.rows)
-    if not records and not args.dblp_query:
-        fallback_query = f"{args.conference} {args.year}"
-        print(f"ℹ️ DBLP default query returned 0. fallback query: {fallback_query}")
-        records = fetch_dblp_records(fallback_query, args.year, args.timeout, args.rows)
+    records = fetch_dblp_records(query, fallback_query, year, DBLP_TIMEOUT, DBLP_ROWS)
     print(f"✅ DBLP records: {len(records)}")
 
-    if args.conference_list:
-        conference_path = Path(args.conference_list)
-        if conference_path.exists():
-            site_records = load_conference_list(conference_path, args.year, args.conference.upper())
-            records.extend(site_records)
-            print(f"✅ Conference list records: {len(site_records)}")
-        else:
-            print(f"⚠️ conference list not found: {conference_path}")
+    site_records = load_conference_list(conference_items, year, venue)
+    records.extend(site_records)
+    print(f"✅ Conference list records: {len(site_records)}")
 
     deduped = deduplicate_records(records)
     write_jsonl(args.output, deduped)
