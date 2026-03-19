@@ -172,7 +172,7 @@ def main() -> None:
     parser.add_argument(
         "--output",
         type=Path,
-        default=Path("results/recsys2025_accepted_papers.json"),
+        default=Path("results/accepted_papers.json"),
         help="Output JSON path",
     )
     parser.add_argument("--timeout", type=int, default=30, help="HTTP timeout seconds")

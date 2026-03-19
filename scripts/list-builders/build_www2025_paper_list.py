@@ -97,7 +97,7 @@ def main() -> None:
     """PDF から論文リストを抽出して JSON に保存する。"""
     parser = argparse.ArgumentParser(description="Extract WWW 2025 papers from PDF")
     parser.add_argument("--pdf", default=DEFAULT_PDF_PATH, help="Path to PDF file")
-    parser.add_argument("--output", default="results/www2025_accepted_papers.json", help="Output JSON path")
+    parser.add_argument("--output", default="results/accepted_papers.json", help="Output JSON path")
     args = parser.parse_args()
 
     pdf_path = Path(args.pdf)
@@ -112,7 +112,7 @@ def main() -> None:
         print("❌ No papers extracted")
         return
 
-    # JSON 구조화
+    # JSON 出力用のデータ構造を作成
     output_data = {
         "conference_id": "www",
         "venue": "WWW",
