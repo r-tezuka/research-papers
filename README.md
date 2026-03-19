@@ -35,27 +35,6 @@ uv run python scripts/run_pipeline.py \
   --builder scripts/list-builders/build_sigir2025_paper_list.py
 ```
 
-KDD 2025:
-
-```bash
-uv run python scripts/run_pipeline.py \
-  --builder scripts/list-builders/build_kdd2025_paper_list.py
-```
-
-RecSys 2025:
-
-```bash
-uv run python scripts/run_pipeline.py \
-  --builder scripts/list-builders/build_recsys2025_paper_list.py
-```
-
-WWW 2025 (PDF 目次パース):
-
-```bash
-uv run python scripts/run_pipeline.py \
-  --builder scripts/list-builders/build_www2025_paper_list.py
-```
-
 ## データフロー
 
 ```
