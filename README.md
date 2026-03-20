@@ -12,10 +12,10 @@ uv sync
 
 （未インストールなら: `curl -LsSf https://astral.sh/uv/install.sh | sh`）
 
-`.env` に Gemini API キーを設定してください。
+`.env` に DeepL API キーを設定してください。
 
 ```
-GEMINI_API_KEY=your_key_here
+DEEPL_API_KEY=your_key_here
 ```
 
 ## パイプラインの実行手順
@@ -56,5 +56,5 @@ results/papers_translated.md
 ## 注意
 
 - `scripts/pipeline/enrich_abstracts.py` は DOI がない論文の abstract を補完できません。
-- `scripts/pipeline/translate_filtered.py` は Gemini の無料枠・レート制限に注意してください。429 が出た場合は時間を空けて再実行すると、キャッシュ済みの翻訳はスキップされます。
+- `scripts/pipeline/translate_filtered.py` は DeepL API の利用制限に注意してください。翻訳済みレコードはキャッシュされ、再実行時にスキップされます。
 - 旧実装は `scripts/sandbox/paper-translator.py` に保存しています。

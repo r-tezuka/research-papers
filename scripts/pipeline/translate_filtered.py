@@ -3,29 +3,31 @@ import argparse
 import os
 import time
 
+import deepl
 from dotenv import load_dotenv
-from google import genai
 
 from common import build_paper_id, load_jsonl, now_iso, write_jsonl
 
 
-def build_prompt(title: str, abstract: str) -> str:
-    """翻訳モデルへ渡す要約指示プロンプトを組み立てる。"""
-    return (
-        "あなたは情報検索とデジタル広告の専門家です。以下の論文を、日本の研究者向けに日本語で要約してください。\n\n"
-        f"【タイトル】: {title}\n"
-        f"【内容】: {abstract}\n\n"
-        "出力形式:\n"
-        "### [日本語タイトル]\n"
-        "- **要約**: 3行程度の箇条書き"
-    )
-
-
-def translate_text(client: genai.Client, model: str, title: str, abstract: str) -> str:
-    """Gemini APIを呼び出し、1論文分の日本語要約を生成する。"""
-    prompt = build_prompt(title, abstract)
-    response = client.models.generate_content(model=model, contents=prompt)
-    return response.text
+def translate_text(translator: deepl.Translator, title: str, abstract: str) -> dict:
+    """DeepL APIで論文タイトルと概要を日本語に翻訳する。"""
+    # タイトルを翻訳
+    title_result = translator.translate_text(title, target_lang="JA")
+    translated_title = title_result.text if hasattr(title_result, 'text') else str(title_result)
+    
+    # 概要を翻訳（制限に達した場合はスキップ）
+    translated_abstract = ""
+    try:
+        abstract_result = translator.translate_text(abstract, target_lang="JA")
+        translated_abstract = abstract_result.text if hasattr(abstract_result, 'text') else str(abstract_result)
+    except deepl.DocumentTranslationException as e:
+        print(f"⚠️ Translation quota exceeded: {e}")
+        return None
+    
+    return {
+        'title_ja': translated_title,
+        'abstract_ja': translated_abstract
+    }
 
 
 def load_cache_map(path: str) -> dict[str, dict]:
@@ -36,18 +38,17 @@ def load_cache_map(path: str) -> dict[str, dict]:
 
 def main() -> None:
     """広告関連論文を翻訳し、結果を `papers_translated.jsonl` に集約して更新する。"""
-    parser = argparse.ArgumentParser(description="Translate ad-filtered papers with cache")
+    parser = argparse.ArgumentParser(description="Translate ad-filtered papers with DeepL")
     parser.add_argument("--input", default="results/papers_filtered.jsonl", help="Filtered input JSONL")
     parser.add_argument("--output", default="results/papers_translated.jsonl", help="Translated output JSONL")
-    parser.add_argument("--model", default="gemini-2.5-flash", help="Gemini model")
-    parser.add_argument("--sleep", type=float, default=5.0, help="Sleep seconds between API calls")
+    parser.add_argument("--sleep", type=float, default=1.0, help="Sleep seconds between API calls")
     parser.add_argument("--limit", type=int, default=0, help="Translate only first N records (0=all)")
     args = parser.parse_args()
 
     load_dotenv()
-    api_key = os.getenv("GEMINI_API_KEY")
+    api_key = os.getenv("DEEPL_API_KEY")
     if not api_key:
-        raise SystemExit("GEMINI_API_KEY is required")
+        raise SystemExit("❌ DEEPL_API_KEY is required. Set it in .env")
 
     records = load_jsonl(args.input)
     if not records:
@@ -57,7 +58,12 @@ def main() -> None:
     if args.limit > 0:
         records = records[: args.limit]
 
-    client = genai.Client(api_key=api_key)
+    # DeepL Translator を初期化
+    try:
+        translator = deepl.Translator(api_key)
+    except Exception as e:
+        raise SystemExit(f"❌ DeepL API initialization failed: {e}")
+
     cache_map = load_cache_map(args.output)
 
     translated = []
@@ -71,7 +77,7 @@ def main() -> None:
         cached = cache_map.get(paper_id)
         if cached and cached.get("translated_ja"):
             record["translated_ja"] = cached["translated_ja"]
-            record["translation_model"] = cached.get("translation_model", args.model)
+            record["translation_model"] = "deepl"
             record["translation_cached"] = True
             translated.append(record)
             cache_hit += 1
@@ -81,9 +87,13 @@ def main() -> None:
         abstract = record.get("abstract", "") or "（内容取得不可）"
 
         try:
-            result = translate_text(client, args.model, title, abstract)
+            result = translate_text(translator, title, abstract)
+            if result is None:
+                # クォータ超過
+                break
+            
             record["translated_ja"] = result
-            record["translation_model"] = args.model
+            record["translation_model"] = "deepl"
             record["translation_cached"] = False
             record["translated_at"] = now_iso()
 

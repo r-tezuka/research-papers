@@ -8,6 +8,7 @@ from pathlib import Path
 
 import fitz
 
+# proceedings をダウンロードして使う Ref：https://dl.acm.org/doi/proceedings/10.1145/3696410?
 DEFAULT_PDF_PATH = "local/3696410.pdf"
 
 

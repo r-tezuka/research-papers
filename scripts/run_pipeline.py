@@ -35,7 +35,6 @@ FILTERED = "results/papers_filtered.jsonl"
 TRANSLATED = "results/papers_translated.jsonl"
 MARKDOWN = "results/papers_translated.md"
 CONFERENCE_LIST = "results/accepted_papers.json"
-TRANSLATE_MODEL = "gemini-2.5-flash"
 
 
 def main() -> None:
@@ -67,7 +66,7 @@ def main() -> None:
     run_cmd([sys.executable, str(pipeline_dir / "filter_ad_papers.py"), "--input", ENRICHED, "--output", FILTERED])
 
     # Step 5: translate
-    run_cmd([sys.executable, str(pipeline_dir / "translate_filtered.py"), "--input", FILTERED, "--output", TRANSLATED, "--model", TRANSLATE_MODEL])
+    run_cmd([sys.executable, str(pipeline_dir / "translate_filtered.py"), "--input", FILTERED, "--output", TRANSLATED])
 
     # Step 6: export markdown
     run_cmd([sys.executable, str(pipeline_dir / "export_translated_markdown.py"), "--input", TRANSLATED, "--output", MARKDOWN, "--title", read_markdown_title(conference_list)])

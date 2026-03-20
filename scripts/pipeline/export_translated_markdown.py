@@ -17,7 +17,15 @@ def build_entry(record: dict) -> str:
     doi = record.get("doi", "")
     venue = record.get("venue", "")
     section = record.get("section", "")
-    translation = (record.get("translated_ja") or "").strip()
+    translation_data = record.get("translated_ja") or {}
+    title_ja = str(translation_data.get("title_ja", "")).strip()
+    abstract_ja = str(translation_data.get("abstract_ja", "")).strip()
+    chunks: list[str] = []
+    if title_ja:
+        chunks.append(f"### {title_ja}")
+    if abstract_ja:
+        chunks.append(abstract_ja)
+    translation = "\n\n".join(chunks).strip()
     abstract = (record.get("abstract") or "").strip()
 
     lines = [f"## {title}"]
