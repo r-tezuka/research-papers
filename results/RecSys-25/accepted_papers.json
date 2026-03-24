@@ -1,0 +1,1089 @@
+{
+  "conference_id": "recsys",
+  "venue": "RecSys",
+  "year": 2025,
+  "source_url": "https://recsys.acm.org/recsys25/accepted-contributions/",
+  "dblp_query": "toc:db/conf/recsys/recsys2025.bht:",
+  "papers": [
+    {
+      "title": "RESA Language Model-Based Playlist Generation Recommender System",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESA Multi-Factor Collaborative Prediction for Review-based Recommendation",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESA Non-Parametric Choice Model That Learns How Users Choose Between Recommended Options",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESAffect-aware Cross-Domain Recommendation for Art Therapy via Music Preference Elicitation",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESAn Off-Policy Learning Approach for Steering Sentence Generation towards Personalization",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESAuditing Recommender Systems for User Empowerment in Very Large Online Platforms under the Digital Services Act",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESBeyond Immediate Click: Engagement-Aware and MoE-Enhanced Transformers for Sequential Movie Recommendation",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESBreaking Knowledge Boundaries: Cognitive Distillation-enhanced Cross-Behavior Course Recommendation Model",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESEnhancing Online Video Recommendation via a Coarse-to-fine Dynamic Uplift Modeling Framework",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESEnhancing Sequential Recommender with Large Language Models for Joint Video and Comment Recommendation",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESEnhancing Transferability and Consistency in Cross-Domain Recommendations via Supervised Disentanglement",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESExploring Scaling Laws of CTR Model for Online Performance Improvement",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESGRACE: Generative Recommendation via Journey-Aware Sparse Attention on Chain-of-Thought Tokenization",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESGenSAR: Unifying Balanced Search and Recommendation with Generative Retrieval",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESHeterogeneous User Modeling for LLM-based Recommendation",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESHierarchical Graph Information Bottleneck for Multi-Behavior Recommendation",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESHow Do Users Perceive Recommender Systems’ Objectives?",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESIP2: Entity-Guided Interest Probing for Personalized News Recommendation",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESIntegrating Individual and Group Fairness for Recommender Systems through Social Choice",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESLANCE: Exploration and Reflection for LLM-based Textual Attacks on News Recommender Systems",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESLEAF: Lightweight, Efficient, Adaptive and Flexible Embedding for Large-Scale Recommendation Models",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESLLM-RecG: A Semantic Bias-Aware Framework for Zero-Shot Sequential Recommendation",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESLONGER: Scaling Up Long Sequence Modeling in Industrial Recommenders",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESLasso: Large Language Model-based User Simulator for Cross-Domain Recommendation",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESLeave No One Behind: Fairness-Aware Cross-Domain Recommender Systems for Non-Overlapping Users",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESMDSBR: Multimodal Denoising for Session-based Recommendation",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESMapping Stakeholder Needs to Multi-Sided Fairness in Candidate Recommendation for Algorithmic Hiring",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESMeasuring Interaction-Level Unlearning Difficulty for Collaborative Filtering",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESMoRE: A Mixture of Reflectors Framework for Large Language Model-Based Sequential Recommendation",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESModeling Long-term User Behaviors with Diffusion-driven Multi-interest Network for CTR Prediction",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESMulti-Granularity Distribution Modeling for Video Watch Time Prediction via Exponential-Gaussian Mixture Network",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESNLGCL: Naturally Existing Neighbor Layers Graph Contrastive Learning for Recommendation",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESNon-parametric Graph Convolution for Re-ranking in Recommendation Systems",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESOff-Policy Evaluation and Learning for Matching Markets",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESOff-Policy Evaluation of Candidate Generators in Two-Stage Recommender Systems",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESOn the Reliability of Sampling Strategies in Offline Recommender Evaluation",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESParagon: Parameter Generation for Controllable Multi-Task Recommendation",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESPinFM: Foundation Model for User Activity Sequences at a Billion-scale Visual Discovery Platform",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESPrivacy-Preserving Social Recommendation: Privacy Leakage and Countermeasure",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESPrompt-to-Slate: Diffusion Models for Prompt-Conditioned Slate Generation",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESRecPS: Privacy Risk Scoring for Recommender Systems",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESRecommendation and Temptation",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESR⁴ec: A Reasoning, Reflection, and Refinement Framework for Recommendation Systems",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESScalable Data Debugging for Neighborhood-based Recommendation with Data Shapley Values",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESTag-augmented Dual-target Cross-domain Recommendation",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESTest-Time Alignment with State Space Model for Tracking User Interest Shifts in Sequential Recommendation",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESUSB-Rec: An Effective Framework for Improving Conversational Recommendation Capability of Large Language Model",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESVL-CLIP: Enhancing Multimodal Recommendations via Visual Grounding and LLM-Augmented CLIP Embeddings",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESYou Don’t Bring Me Flowers: Mitigating Unwanted Recommendations Through Conformal Risk Control",
+      "section": "full papers",
+      "doi": ""
+    },
+    {
+      "title": "RESA Multistakeholder Approach to Value-Driven Co-Design of Recommender Systems Evaluation Metrics in Digital Archives",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RES‘Beyond the past’: Leveraging Audio and Human Memory for Sequential Music Recommendation",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESBeyond Top-1: Addressing Inconsistencies in Evaluating Counterfactual Explanations for Recommender Systems",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESBeyond Visit Trajectories: Enhancing POI Recommendation via LLM-Augmented Text and Image Representations",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESBiases in LLM-Generated Musical Taste Profiles for Recommendation",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESCollaborative Interest Modeling in Recommender Systems",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESConsistent Explainers or Unreliable Narrators? Understanding LLM-generated Group Recommendations",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESCorrecting the LogQ Correction: Revisiting Sampled Softmax for Large-Scale Retrieval",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESCounterfactual Inference under Thompson Sampling",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESD-RDW: Diversity-Driven Random Walks for News Recommender Systems",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESDeterminants of Users’ Chance-Seeking Behavior in Search-Based Recommendation",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESDisentangling User and Item Sequence Patterns in Sequential Recommendation Data Sets",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESDo We Really Need Specialization? Evaluating Generalist Text Embeddings for Zero-Shot Recommendation and Search",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESEmotion Vector-Based Fine-Tuning of Large Language Models for Age-Aware Teenage Book Recommendations",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESEstimating Quantum Execution Requirements for Feature Selection in Recommender Systems Using Extreme Value Theory",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESExploring the Effect of Context-Awareness and Popularity Calibration on Popularity Bias in POI Recommendations",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESFailure Prediction in Conversational Recommendation Systems",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESFeedback-Driven Gradual Discovery for Expanding Musical Preferences",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESHiDePCC: A Novel Dual-Pronged Untargeted Attack on Federated Recommendation via Gradient Perturbation and Cluster Crafting",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESJust Ask for Music (JAM): Multimodal and Personalized Natural Language Music Recommendation",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESLarge Scale E-Commerce Model for Learning and Analyzing Long-Term User Preferences",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESLet It Go? Not Quite: Addressing Item Cold Start in Sequential Recommendations with Content-Based Initialization",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESMitigating Latent User Biases in Pre-trained VAE Recommendation Models via On-demand Input Space Transformation",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESNot Just What, But When: Integrating Irregular Intervals to LLM for Sequential Recommendation",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESNot One News Recommender To Fit Them All: How Different Recommender Strategies Serve Various User Segments",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESOn Inherited Popularity Bias in Cold-Start Item Recommendation",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESPersonalized Persuasion-Aware Explanations in Recommender Systems",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESPopularity-Bias Vulnerability: Semi-Supervised Label Inference Attack on Federated Recommender Systems",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESRethinking Overconfidence in VAEs: Can Label Smoothing Help?",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESSGCL: Unifying Self-Supervised and Supervised Learning for Graph Recommendation",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESStairway to Fairness: Connecting Group and Individual Fairness",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESTowards Personality-Aware Explanations for Music Recommendations Using Generative AI",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "RESTreatRAG: A Framework for Personalized Treatment Recommendation",
+      "section": "short papers",
+      "doi": ""
+    },
+    {
+      "title": "REPRA Reproducibility Study of Product-side Fairness in Bundle Recommendation",
+      "section": "reproducibility",
+      "doi": ""
+    },
+    {
+      "title": "REPRAre We Really Making Recommendations Robust? Revisiting Model Evaluation for Denoising Recommendation",
+      "section": "reproducibility",
+      "doi": ""
+    },
+    {
+      "title": "REPRContext Trails: A Dataset to Study Contextual and Route Recommendation",
+      "section": "reproducibility",
+      "doi": ""
+    },
+    {
+      "title": "REPRDistillRecDial: A Knowledge-Distilled Dataset Capturing User Diversity in Conversational Recommendation",
+      "section": "reproducibility",
+      "doi": ""
+    },
+    {
+      "title": "REPRExploitation Over Exploration: Unmasking the Bias in Linear Bandit Recommender Offline Evaluation",
+      "section": "reproducibility",
+      "doi": ""
+    },
+    {
+      "title": "REPRExploring the Potential of LLMs for Serendipity Evaluation in Recommender Systems",
+      "section": "reproducibility",
+      "doi": ""
+    },
+    {
+      "title": "REPRFashion-AlterEval: A Dataset for Improved Evaluation of Conversational Recommendation Systems with Alternative Relevant Items",
+      "section": "reproducibility",
+      "doi": ""
+    },
+    {
+      "title": "REPRGreenFoodLens: Sustainability Labels for Food Recommendation",
+      "section": "reproducibility",
+      "doi": ""
+    },
+    {
+      "title": "REPRHow Powerful are LLMs to Support Multimodal Recommendation? A Reproducibility Study of LLMRec",
+      "section": "reproducibility",
+      "doi": ""
+    },
+    {
+      "title": "REPRImpacts of Mainstream-Driven Algorithms on Recommendations for Children Across Domains: A Reproducibility Study",
+      "section": "reproducibility",
+      "doi": ""
+    },
+    {
+      "title": "REPRInformfully Recommenders – Reproducibility Framework for Diversity-aware Intra-session Recommendations",
+      "section": "reproducibility",
+      "doi": ""
+    },
+    {
+      "title": "REPRModel Meets Knowledge: Analyzing Knowledge Types for Conversational Recommender Systems",
+      "section": "reproducibility",
+      "doi": ""
+    },
+    {
+      "title": "REPRPrivacy Risks of LLM-Empowered Recommender Systems: An Inversion Attack Perspective",
+      "section": "reproducibility",
+      "doi": ""
+    },
+    {
+      "title": "REPRRethinking the Privacy of Text Embeddings: A Reproducibility Study of “Text Embeddings Reveal (Almost) As Much As Text”",
+      "section": "reproducibility",
+      "doi": ""
+    },
+    {
+      "title": "REPRRevisiting Prompt Engineering: A Comprehensive Evaluation for LLM-based Personalized Recommendation",
+      "section": "reproducibility",
+      "doi": ""
+    },
+    {
+      "title": "REPRRevisiting the Performance of Graph Neural Networks for Session-based Recommendation",
+      "section": "reproducibility",
+      "doi": ""
+    },
+    {
+      "title": "REPRSee the Movie, Hear the Song, Read the Book: Extending MovieLens-1M, Last.fm-2K, and DBbook with Multimodal Data",
+      "section": "reproducibility",
+      "doi": ""
+    },
+    {
+      "title": "REPRTIM-Rec: Explicit Sparse Feedback on Multi-Item Upselling Recommendations in an Industrial Dataset of Telco Calls",
+      "section": "reproducibility",
+      "doi": ""
+    },
+    {
+      "title": "REPRThe XITE Million Sessions Dataset",
+      "section": "reproducibility",
+      "doi": ""
+    },
+    {
+      "title": "REPRTime to Split: Exploring Data Splitting Strategies for Offline Evaluation of Sequential Recommenders",
+      "section": "reproducibility",
+      "doi": ""
+    },
+    {
+      "title": "REPR‘We Share Our Code Online’: Why This Is Not Enough to Ensure Reproducibility and Progress in Recommender Systems Research",
+      "section": "reproducibility",
+      "doi": ""
+    },
+    {
+      "title": "REPRYambda-5B — A Large-Scale Multi-Modal Dataset for Ranking and Retrieval",
+      "section": "reproducibility",
+      "doi": ""
+    },
+    {
+      "title": "INDA Media Content Recommendation Method for Playlist Curators using LLM-Based Query Expansion",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDAgentic Personalisation of Cross-Channel Marketing Experiences",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDAn Analysis of Learned Product Embeddings in an E-Commerce Context",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDBalanced Public Service Media Recommendation Trade-offs with a Light Carbon Footprint",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDBalancing Fine-tuning and RAG: A Hybrid Strategy for Dynamic LLM Recommendation Updates",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDClosing the Online-Offline Gap: A Scalable Framework for Composed Model Evaluation",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDCold Starting a New Content Type: A Case Study with Netflix Live",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDContrastive Conditional Embeddings for Item-based Recommendation at E-commerce Scale",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDCross-Batch Aggregation for Streaming Learning from Label Proportions in Industrial-Scale Recommendation Systems",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDDecoupled Entity Representation Learning for Pinterest Ads Ranking",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDDeep Reinforcement Learning for Ranking Utility Tuning in the Ad Recommender System at Pinterest",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDEfficient Off-Policy Evaluation of Content Blending in Station-Based Music Experiences",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDEnhancing Embedding Representation Stability in Recommendation Systems with Semantic ID",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDEnhancing Online Ranking Systems via Multi-Surface Co-Training for Content Understanding",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDGeneralized User Representations for Large-Scale Recommendations and Downstream Tasks",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDIdentifying Offline Metrics that Predict Online Impact: A Pragmatic Strategy for Real-World Recommender Systems",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDImprove the Personalization of Large-Scale Ranking Systems by Integrating User Survey Feedback",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDImproving Visual Recommendation on E-commerce Platforms Using Vision-Language Models",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDIn-context Learning for Addressing User Cold-start in Sequential Movie Recommenders",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDIndustry Insights from Comparing Deep Learning and GBDT Models for E-Commerce Learning-to-Rank",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDItem-centric Exploration for Cold Start Problem",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDKamae: Bridging Spark and Keras for Seamless ML Preprocessing",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDLADDER: LLM-Annotated Data for Dogfooded Evaluation of Rankings",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDLLM-Powered Nuanced Video Attribute Annotation for Enhanced Recommendations",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDLeveraging Explicit Negative Feedback in Large-Scale Recommendation Systems: A Case Study",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDLocation Matters: Leveraging Multi-Resolution Geo-Embeddings for Housing Search",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDMetadata Generation and Evaluation using LLMs – Case Study on Canonical Titles",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDMinimize Negative Experiences in Video Recommendation Systems with Multimodal Large Language Models",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDNever Miss an Episode: How LLMs are Powering Serial Content Discovery on YouTube",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDNot All Impressions Are Created Equal: Psychology-Informed Retention Optimization for Short-Form Video Recommendation",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDOperational Twin–Driven AI Recommender for Strategic Service Planning",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDOrthogonal Low Rank Embedding Stabilization",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDPareto-Optimal Solution: Optimizing Engagement and Revenue",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDPersonalized Interest Graphs for Theme-Driven User Behavior",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDPractical Multi-Task Learning for Rare Conversions in Ad Tech",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDRADAR: Recall Augmentation through Deferred Asynchronous Retrieval",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDRankGraph: Unified Heterogeneous Graph Learning for Cross-Domain Recommendation",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDSASRec in Action: Real-World Adaptations for ZDF Streaming Service",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDSEMORec: A Scalarized Efficient Multi-Objective Recommendation Framework",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDScaling Generative Recommendations with Context Parallelism on Hierarchical Sequential Transducers",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDScaling Image Variant Optimization Through Customer Bucketing and Response Caching: A Large-Scale Implementation at Amazon Prime Video",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDScaling Retrieval for Web-Scale Recommenders: Lessons from Inverted Indexes to Embedding Search",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDSemantic IDs for Music Recommendation",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDSimulating Discoverability for Upcoming Content in TV Entertainment Platforms",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDSocRipple: A Two-Stage Framework for Cold-Start Video Recommendations",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDStream Normalization for CTR Prediction",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDStreaming Trends: A Low-Latency Platform for Dynamic Video Grouping and Trending Corpora Building",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDSuggest, Complement, Inspire: Story of Two-Tower Recommendations at Allegro.com",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDThe Future is Sparse: Embedding Compression for Scalable Retrieval in Recommender Systems",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDUSD: A User-Intent-Driven Sampling and Dual-Debiasing Framework for Large-Scale Homepage Recommendations",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDUnified Survey Modeling to Limit Negative User Experiences in Recommendation Systems",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDUser Long-Term Multi-Interest Retrieval Model for Recommendation",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDYou Say Search, I Say Recs: A Scalable Agentic Approach to Query Understanding and Exploratory Search at Spotify",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "INDZero-shot Cross-domain Knowledge Distillation: A Case study on YouTube Music",
+      "section": "industry",
+      "doi": ""
+    },
+    {
+      "title": "LBRA Dual-Key Attention Framework for Sequential Recommendation with Side Information",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRAddressing Multiple Hypothesis Bias in CTR Prediction for Ad Selection",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRBalancing Accuracy and Novelty with Sub-Item Popularity",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRBenefiting from Negative yet Informative Feedback by Contrasting Opposing Sequential Patterns",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRBeyond Clicks: Eye-Tracking Insights into User Responses to Different Recommendation Types",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRDebiasing Implicit Feedback Recommenders via Sliced Wasserstein Distance-based Regularization",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRDescribe What You See with Multimodal Large Language Models to Enhance Video Recommendations",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRDon’t Get Ahead of Yourself: A Critical Study on Data Leakage in Offline Evaluation of Sequential Recommenders",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBREnd-to-End Time Interval-wise Segmentation for Sequential Recommendation",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBREvaluating Podcast Recommendations with Profile-Aware LLM-as-a-Judge",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRFine-tuning for Inference-efficient Calibrated Recommendations",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRFrom Previous Plays to Long-Term Tastes",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRHow Fair is Your Diffusion Recommender Model?",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRInvestigating Carbon Footprint of Recommender Systems Beyond Training Time",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRLearning geometry-aware recommender systems with manifold regularization",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRLeveraging Geometric Insights in Hyperbolic Triplet Loss for Improved Recommendations",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRLift It Up Right: A Recommender System for Safer Lifting Postures",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRMeta Off-Policy Estimation",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRMitigating Popularity Bias in Counterfactual Explanations using Large Language Models",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRNormative Alignment of Recommender Systems via Internal Label Shift",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBROpening the Black Box: Interpretable Remedies for Popularity Bias in Recommender Systems",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRPAIRSAT: Integrating Preference-Based Signals for User Satisfaction Estimation in Dialogue Systems",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRParameter-Efficient Single Collaborative Branch for Recommendation",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRProbabilistic Modeling, Learnability and Uncertainty Estimation for Interaction Prediction in Movie Rating Datasets",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRRecommendation Is a Dish Better Served Warm",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRRecurrent Autoregressive Linear Model for Next-Basket Recommendation",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRRethinking Subjective Features in Recommender Systems: Personal Views Over Aggregated Values",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRRicciFlowRec: A Geometric Root Cause Recommender Using Ricci Curvature on Financial Graphs",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRSAGEA: Sparse Autoencoder-based Group Embeddings Aggregation for Fairness-Preserving Group Recommendations",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRSemantic IDs for Joint Generative Search and Recommendation",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRSlateLLM: Distilling LLM Semantics into Session-Aware Slate Recommendation without Inference Overhead",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRt-Testing the Waters",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRThe Hidden Cost of Defaults in Recommender System Evaluation",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBRUnobserved Negative Items in Recommender Systems: Challenges and Solutions for Evaluation and Learning",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "LBReSASRec: Enhancing Transformer-based Recommendations in a Modular Fashion",
+      "section": "lbr",
+      "doi": ""
+    },
+    {
+      "title": "DEMOAPS Explorer: Navigating Algorithm Performance Spaces for Informed Dataset Selection",
+      "section": "demo",
+      "doi": ""
+    },
+    {
+      "title": "DEMOArtAICare: An End-to-End Platform for Personalized Art Therapy",
+      "section": "demo",
+      "doi": ""
+    },
+    {
+      "title": "DEMOArtEx: A User-Controllable Web Interface for Visual Art Recommendations",
+      "section": "demo",
+      "doi": ""
+    },
+    {
+      "title": "DEMOBlooming Beats: An Interactive Music Recommender System Grounded in TRACE Principles and Data Humanism",
+      "section": "demo",
+      "doi": ""
+    },
+    {
+      "title": "DEMOFlights Pricelock Fee Recommendation on Online Travel Agent Platform",
+      "section": "demo",
+      "doi": ""
+    },
+    {
+      "title": "DEMOInteractive Playlist Generation from Titles",
+      "section": "demo",
+      "doi": ""
+    },
+    {
+      "title": "DEMOLarge Language Model-based Recommendation System Agents",
+      "section": "demo",
+      "doi": ""
+    },
+    {
+      "title": "DEMOPRISM: From Individual Preferences to Group Consensus through Conversational AI-Mediated and Visual Explanations",
+      "section": "demo",
+      "doi": ""
+    },
+    {
+      "title": "DEMORecViz: Intuitive Graph-based Visual Analytics for Dataset Exploration and Recommender System Evaluation",
+      "section": "demo",
+      "doi": ""
+    },
+    {
+      "title": "DEMOTravel Together, Play Together: Gamifying a Group Recommender System for Tourism",
+      "section": "demo",
+      "doi": ""
+    },
+    {
+      "title": "DEMOVisualReF: Interactive Image Search Prototype with Visual Relevance Feedback",
+      "section": "demo",
+      "doi": ""
+    },
+    {
+      "title": "DSAdding Value to Low-Resource Industrial Recommender Systems",
+      "section": "doctoral",
+      "doi": ""
+    },
+    {
+      "title": "DSAddressing Multi-stakeholder Fairness Concerns in Recommender Systems Through Social Choice",
+      "section": "doctoral",
+      "doi": ""
+    },
+    {
+      "title": "DSAdvancing User-Centric Evaluation and Design of Conversational Recommender Systems",
+      "section": "doctoral",
+      "doi": ""
+    },
+    {
+      "title": "DSAre Recommender Systems Serving Children? Toward Child-Aware Design and Evaluation",
+      "section": "doctoral",
+      "doi": ""
+    },
+    {
+      "title": "DSBayesian Perspectives on Offline Evaluation for Recommender Systems",
+      "section": "doctoral",
+      "doi": ""
+    },
+    {
+      "title": "DSBeyond Persuasion: Adaptive Warnings and Balanced Explanations for Informed Decision-Making in Recommender Systems",
+      "section": "doctoral",
+      "doi": ""
+    },
+    {
+      "title": "DSChallenges in Perfume Recommender Systems: Navigating Subjectivity, Context and Sensory Data",
+      "section": "doctoral",
+      "doi": ""
+    },
+    {
+      "title": "DSFair and Transparent Recommender Systems for Advertisements",
+      "section": "doctoral",
+      "doi": ""
+    },
+    {
+      "title": "DSFull-Page Recommender: A Modular Framework for Multi-Carousel Recommendations",
+      "section": "doctoral",
+      "doi": ""
+    },
+    {
+      "title": "DSNarrative-Driven Itinerary Recommendation: LLM Integration for Immersive Urban Walking",
+      "section": "doctoral",
+      "doi": ""
+    },
+    {
+      "title": "DSPersonalized Image Generation for Recommendations Beyond Catalogs",
+      "section": "doctoral",
+      "doi": ""
+    },
+    {
+      "title": "DSRecommender Systems for Digital Humanities and Archives: Multistakeholder Evaluation, Scholarly Information Needs, and Multimodal Similarity",
+      "section": "doctoral",
+      "doi": ""
+    }
+  ]
+}

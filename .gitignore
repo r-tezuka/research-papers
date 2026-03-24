@@ -44,5 +44,5 @@ Thumbs.db
 local/*
 
 # Script output (keep .gitkeep so results/ is tracked)
-results/*
-!results/.gitkeep
+# results/*
+# !results/.gitkeep

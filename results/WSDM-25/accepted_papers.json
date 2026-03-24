@@ -1,0 +1,579 @@
+{
+  "conference_id": "wsdm",
+  "venue": "WSDM",
+  "year": 2025,
+  "source_url": "https://www.wsdm-conference.org/2025/accepted-papers/",
+  "dblp_query": "toc:db/conf/wsdm/wsdm2025.bht:",
+  "papers": [
+    {
+      "title": "Review-Based Hyperbolic Cross-Domain Recommendation",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Beyond Message-Passing: Generalization of Graph Neural Networks via Feature Perturbation",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "LOGIN: A Large Language Model Consulted Graph Neural Network Training Framework",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Dynamic Graph Transformer with Correlated Spatial-Temporal Positional Encoding",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "S-Diff: An Anisotropic Diffusion Model for Collaborative Filtering in Spectral Domain",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Maintaining k-MinHash Signatures over Fully-Dynamic Data Streams with Recovery",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Hyperdimensional Representation Learning for Node Classification and Link Prediction",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "FedGF: Enhancing Structural Knowledge via Graph Factorization for Federated Graph Learning",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Prospective Multi-Graph Cohesion for Multivariate Time Series Anomaly Detection",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Incomplete Multi-view Clustering via Local Reasoning and Correlation Analysis",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Large Language Model driven Policy Exploration for Recommender S",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "The Initial Screening Order ProblemJose M Alvarez (Scuola Normale Superiore)*;",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Cross-Domain Pre-training with Language Models for Transferable Time Series Representations",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Empowering Time Series Classification with Multimodal Language Modeling",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Unsupervised Robust Cross-Lingual Entity Alignment via Neighbor Triple Matching with Entity and Relation Texts",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "MedTransTab: Advancing Medical Cross-Table Tabular Data Generation",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Q-DISCO: Query-Centric Densest Subgraphs in Networks with Opinion Information",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Gradient Deconfliction via Orthogonal Projections onto Subspaces For Multi-task Learning",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Self-supervised Time-aware Heterogeneous Hypergraph Learning for Dynamic Graph-level ClassificationMalik",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Combating Heterogeneous Model Biases in Recommendations via Boosting",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Robustness Verification of Deep Graph Neural Networks Tightened by Linear Approximation",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Teach Me How to Denoise: a Universal Framework for Denoising Multi-modal Recommender Systems via Guided Calibration",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Dynamic Interaction-Driven Intent Evolver with Semantic Probability Distributions",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "DDualSE: Decoupled Dual-head Squeeze and Excitation Attention for Sequential Recommendation",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Do Stubborn Users Always Cause More Polarization and Disagreement? A Mathematical Study",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "HHGT: Hierarchical Heterogeneous Graph Transformer for Heterogeneous Graph Representation LearningQIUYU ZHU (Nanyang Technological University)*;",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "A Sublinear Algorithm for Approximate Shortest Paths in Large Networks",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Writing Style Matters: An Examination of Bias and Fairness in Information Retrieval SystemsHongliu CAO",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "CIMAGE: Exploiting the Conditional Independence in Masked Graph Auto-encoders",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "RSM: Reinforced Subgraph Matching Framework with Fine-grained Operation based Search Plan",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "BAKER: Bayesian Kernel Uncertainty in Domain-Specific Document Modelling",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Edge Classification on Graphs: New Directions in Topological Imbalance",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Bridging Source and Target Domains via Link Prediction for Unsupervised Domain Adaptation on GraphsYILONG WANG (Penn State University)*;",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Hawkes Point Process-Enhanced Dynamic Graph Neural Networks",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Optimizing Blockchain Analysis: Tackling Temporality and Scalability with an Incremental Approach with Metropolis-Hastings Random Walks",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "SCONE: A Novel Stochastic Sampling to Generate Contrastive Views and Hard Negative Samples for Recommendation",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Towards Personalized Federated Multi-Scenario Multi-Task Recommendation",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Revisiting Fake News Detection: Towards Temporality-aware Evaluation by Leveraging Engagement Earliness",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Graph Disentangle Causal Model: Enhancing Causal Inference in Networked Observational Data",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "ESA: Example Sieve Approach for Multi-Positive and Unlabeled Learning",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Context Embeddings for Efficient Answer Generation in RAG",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "An aspect performance-aware hypergraph neural network for review-based recommendation",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Balancing Revenue and Privacy with Signaling Schemes in Online Ad Auctions",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "A Contrastive Framework with User, Item and Review Alignment for RecommendationHoang V. Dong (Singapore Management University)*;",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Sequential diversification with provable guarantees",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "DeMBR: Denoising Model with Memory Pruning and Semantic Guidance for Multi-Behavior Recommendation",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Progressive Tasks Guided Multi-Source Network for Customer Lifetime Value Prediction in Online Advertising",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Mining Topics towards ChatGPT using Disentangled Contextualized-neural Topic Model",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Exploration and Exploitation of Hard Negative Samples for Cross-Domain Sequential Recommendation",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Simple Graph Neural Networks for Recommendation",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Enhancing Code Search Intent with Programming Context Exploration",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Neo-TKGC: Enhancing Temporal Knowledge Graph Completion with Integrated Node Weights and Future Information",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "AMLCDR: An Adaptive Meta-Learning Model for Cross-Domain Recommendation by Aligning Preference Distributions",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "HACD: Harnessing Attribute Semantics and Mesoscopic Structure for Community Detection",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "GAMED: Knowledge Adaptive Multi-Experts Decoupling for Multimodal Fake News Detection",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Oracle-guided Dynamic User Preference Modeling for Sequential Recommendation",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "IMPO: Interpretable Memory-based Prototypical Pooling",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Improving Scientific Document Retrieval with Concept Coverage-based Query Set GenerationSeong",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Personalised Outfit Recommendation via History-aware TransformersMyong",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "LLM Simulator for Online Billion-Scale Item Cold-Start Recommendation",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "DTPN: A Diffusion-based Traffic Purification Network for Tor Website Fingerprinting",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Density-aware and Cluster-based Federated Anomaly Detection on Data Streams",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Predicting Eviction Status Using Airbnb Data in the Absence of Ground-Truth Eviction Records",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Training MLPs on Graphs without Supervision",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Explainable CTR prediction via LLM reasoning",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Facet-Aware Multi-Head Mixture-of-Experts Model for Sequential Recommendation",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Adaptive Graph Enhancement for Imbalanced Multi-relation Graph Learning",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Temporal Linear Item-Item Model for Sequential Recommendation",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "DimeRec: A Unified Framework for Enhanced Sequential Recommendation via Generative Diffusion Models",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "An Edge-Based Decomposition Framework for Temporal Networks",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Fusion Matters: Learning Fusion in Deep Click-through Rate Prediction Models",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "VARIUM: Variational Autoencoder for Multi-Interest Representation with Inter-User MemoryNhu-",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Graph Size-imbalanced Learning with Energy-guided Structural Smoothing",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Polaris: Sampling from the Multigraph Configuration Model with Prescribed Color Assortativity",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Spectrum-based Modality Representation Fusion Graph Convolutional Network for Multi-modal RecommendationRongqing",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Towards Reliable Latent Knowledge Estimation in LLMs: Zero-Prompt Many-Shot Based Factual Knowledge Extraction",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Improving FIM Code Completions via Context & Curriculum Based Learning",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Sequentially Diversified and Accurate Recommendations in Chronological Order for a Series of Users",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Adjacent Neighborhood Transformer-based Diffusion Model for Anomaly Detection under Incomplete Industrial Data Sources",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Untapping the Power of Indirect Relationships in Entity Summarization",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Improving CTR Prediction with Graph-Enhanced Interest Networks for Sparse Behavior Sequences",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Heterophilic Graph Neural Networks Optimization with Causal Message-passing",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "HaGAR: Hardness-aware Generative Adversarial RecommenderYuan-",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "UIPN: User Intent Profiling Network for Multi Behavior Modeling in CTR Prediction",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "MoKGNN: Boosting Graph Neural Networks via Mixture of Generic and Task-Specific Language Models",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "DLCRec: A Novel Approach for Managing Diversity in LLM-Based Recommender Systems",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Reindex-Then-Adapt: Improving Large Language Models for Conversational Recommendation",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Adaptive Loss-based Curricula for Neural Team RecommendationReza R.B Barzegar (University of windsor); Marco N Kurepa (University of British Columbia);",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Demystify Epidemic Containment in Directed Networks: Theory and Algorithms",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Does Memorization Affect LLMs’ Social Reasoning? An Evaluation on Seen and Unseen Queries",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Beyond Answers: Transferring Reasoning Capabilities to Smaller LLMs Using Multi-Teacher Knowledge Distillation",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Inductive Graph Few-shot Class Incremental Learning",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "How Do Recommendation Models Amplify Popularity Bias? An Analysis from the Spectral Perspective",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Lighter And Better: Flexible Context Adaptation For Retrieval Augmented Generation",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "RetriEVAL: Evaluating Text Generation with Contextualized Lexical Match",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Effective Learning in the Presence of Unstructured Interactions",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Generating Diverse Criteria On-the-Fly to Improve Point-wise LLM Rankers",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Quam: Adaptive Retrieval through Query Affinity Modelling",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "ProCC: Programmatic Reinforcement Learning for Efficient and Transparent TCP Congestion Control",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "UniGLM: Training One Unified Language Model for Text-Attributed Graphs EmbeddingYI FANG (New York University)*;",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Your causal self-attentive recommender hosts a lonely neighborhood",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "HTEA: Heterogeneity-aware Temporal Entity Alignment",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "D$^2$: Customizing Two-Stage Graph Neural Networks for Early Rumor Detection through Cascade Diffusion Prediction",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Heterogeneous Graph Diffusion Model",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Heterogeneous Disentangled Collaborative Filtering",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "© 2026, WSDM 2025. All right reserved.",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Manage Cookie Consent",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "To provide the best experiences, we use technologies like cookies to store and/or access device information. Consenting to these technologies will allow us to process data for registration forms. Not consenting or withdrawing consent, may adversely affect certain features and functions.",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "The technical storage or access is strictly necessary for the legitimate purpose of enabling the use of a specific service explicitly requested by the subscriber or user, or for the sole purpose of carrying out the transmission of a communication over an electronic communications network.",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "The technical storage or access is necessary for the legitimate purpose of storing preferences that are not requested by the subscriber or user.",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "The technical storage or access that is used exclusively for statistical purposes.The technical storage or access that is used exclusively for anonymous statistical purposes. Without a subpoena, voluntary compliance on the part of your Internet Service Provider, or additional records from a third party, information stored or retrieved for this purpose alone cannot usually be used to identify you.",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "The technical storage or access is required to create user profiles to send advertising, or to track the user on a website or across several websites for similar marketing purposes.",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "Manage optionsManage servicesManage {vendor_count} vendorsRead more about these purposes",
+      "section": "accepted papers",
+      "doi": ""
+    },
+    {
+      "title": "AcceptDenyView preferencesSave preferencesView preferences",
+      "section": "accepted papers",
+      "doi": ""
+    }
+  ]
+}
