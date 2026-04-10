@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""WSDM 2025 ページから論文リスト（title / section / doi）を抽出して JSON に保存する。"""
+"""WSDM 2024 ページから論文リスト（title / section / doi）を抽出して JSON に保存する。"""
 
 import argparse
 import html
@@ -9,7 +9,7 @@ from pathlib import Path
 
 import requests
 
-DEFAULT_URL = "https://www.wsdm-conference.org/2025/accepted-papers/"
+DEFAULT_URL = "https://www.wsdm-conference.org/2024/accepted-papers/"
 DOI_PATTERN = re.compile(r"10\.\d{4,9}/[-._;()/:A-Z0-9]+", re.IGNORECASE)
 SKIP_PREFIXES = (
     "copyright",
@@ -22,22 +22,17 @@ SKIP_PREFIXES = (
     "privacy",
     "cookie",
 )
-HTML_TAG_PATTERN = re.compile(r"<[^>]+>")
-PAPER_STRONG_PATTERN = re.compile(
-    r"<p[^>]*>\s*<strong[^>]*>(.*?)</strong>\s*<em[^>]*>",
+ENTRY_CONTENT_PATTERN = re.compile(
+    r'<div class="entry-content">(.*?)</div><!-- \.entry-content -->',
     re.IGNORECASE | re.DOTALL,
 )
+STRONG_TEXT_PATTERN = re.compile(r"<strong[^>]*>(.*?)</strong>", re.IGNORECASE | re.DOTALL)
+HTML_TAG_PATTERN = re.compile(r"<[^>]+>")
 
 
 def normalize_space(text: str) -> str:
     """連続空白を 1 つにし、前後空白を除去する。"""
     return re.sub(r"\s+", " ", text or "").strip()
-
-
-def extract_doi(text: str) -> str:
-    """文字列中の DOI を抽出する。見つからなければ空文字。"""
-    match = DOI_PATTERN.search(text or "")
-    return match.group(0).lower() if match else ""
 
 
 def looks_like_paper_title(text: str) -> bool:
@@ -69,11 +64,17 @@ def clean_html_text(text: str) -> str:
     return normalize_space(html.unescape(no_tags))
 
 
-def parse_titles_from_html(html_text: str) -> list[str]:
-    """本文中の p>strong タグからタイトル候補を抽出する。"""
+def extract_entry_content(html_text: str) -> str:
+    """本文エリア（entry-content）を抽出する。"""
+    match = ENTRY_CONTENT_PATTERN.search(html_text)
+    return match.group(1) if match else ""
+
+
+def parse_titles_from_entry_content(content_html: str) -> list[str]:
+    """本文中の strong タグからタイトル候補を抽出する。"""
     titles: list[str] = []
     seen_keys: set[str] = set()
-    for raw in PAPER_STRONG_PATTERN.findall(html_text):
+    for raw in STRONG_TEXT_PATTERN.findall(content_html):
         title = clean_html_text(raw)
         if not looks_like_paper_title(title):
             continue
@@ -97,18 +98,22 @@ def fetch_html(url: str, timeout: int = 30) -> str:
 
 def parse_records(html: str) -> list[dict]:
     """HTML 文字列から論文候補レコードを抽出する。"""
-    titles = parse_titles_from_html(html)
+    content_html = extract_entry_content(html)
+    if not content_html:
+        return []
+
+    titles = parse_titles_from_entry_content(content_html)
     return [{"title": title, "section": "accepted papers", "doi": ""} for title in titles]
 
 
 def main() -> None:
-    """WSDM 2025 論文リストを JSON として保存する。"""
-    parser = argparse.ArgumentParser(description="Build WSDM 2025 paper list JSON from web page")
-    parser.add_argument("--url", default=DEFAULT_URL, help="WSDM 2025 paper list page URL")
+    """WSDM 2024 論文リストを JSON として保存する。"""
+    parser = argparse.ArgumentParser(description="Build WSDM 2024 paper list JSON from web page")
+    parser.add_argument("--url", default=DEFAULT_URL, help="WSDM 2024 paper list page URL")
     parser.add_argument(
         "--output",
         type=Path,
-        default=Path("results/WSDM-25/accepted_papers.json"),
+        default=Path("results/WSDM-24/accepted_papers.json"),
         help="Output JSON path",
     )
     parser.add_argument("--timeout", type=int, default=30, help="HTTP timeout seconds")
@@ -121,9 +126,9 @@ def main() -> None:
     payload = {
         "conference_id": "wsdm",
         "venue": "WSDM",
-        "year": 2025,
+        "year": 2024,
         "source_url": args.url,
-        "dblp_query": "toc:db/conf/wsdm/wsdm2025.bht:",
+        "dblp_query": "toc:db/conf/wsdm/wsdm2024.bht:",
         "papers": records,
     }
 
