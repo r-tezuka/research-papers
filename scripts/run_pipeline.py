@@ -31,6 +31,7 @@ def run_cmd(cmd: list[str]) -> None:
 
 MASTER = "results/papers_master.jsonl"
 ENRICHED = "results/papers_enriched.jsonl"
+ENRICHED_MARKDOWN = "results/papers_enriched.md"
 FILTERED = "results/papers_filtered.jsonl"
 TRANSLATED = "results/papers_translated.jsonl"
 MARKDOWN = "results/papers_translated.md"
@@ -61,6 +62,9 @@ def main() -> None:
 
     # Step 3: enrich
     run_cmd([sys.executable, str(pipeline_dir / "enrich_abstracts.py"), "--input", MASTER, "--output", ENRICHED])
+
+    # Step 3.5: export enriched markdown
+    run_cmd([sys.executable, str(pipeline_dir / "export_enriched_markdown.py"), "--input", ENRICHED, "--output", ENRICHED_MARKDOWN, "--title", read_markdown_title(conference_list)])
 
     # Step 4: filter
     run_cmd([sys.executable, str(pipeline_dir / "filter_ad_papers.py"), "--input", ENRICHED, "--output", FILTERED])
